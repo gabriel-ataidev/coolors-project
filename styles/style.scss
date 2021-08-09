@@ -1,1 +1,108 @@
 @import url('https://fonts.googleapis.com/css2?family=Mulish:wght@400;700&display=swap');
+
+$background-color: rgb(8, 66, 32);
+$button-color: rgb(75, 73, 73);
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Mulish', sans-serif;
+    color: $background-color;
+}
+button{
+    font-family: 'Mulish', sans-serif;
+}
+path, i, svg{
+    pointer-events: none;
+}
+.colors{
+    min-height: 80vh;
+    display: flex;
+    color: rgb(64, 68, 67);
+    .color{
+        height: 80vh;
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        position: relative;
+        overflow: hidden;
+        h2{
+            font-size: 2rem;
+            cursor: pointer;
+        }
+        .controls{
+            display: flex;
+            flex-direction: column;
+            .adjust, .lock{
+                font-size: 2rem;
+                border: none;
+                background: none;
+                cursor: pointer;
+                margin: 2rem 0;
+            }
+        }
+        .sliders{
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            bottom: 0%;
+            background: rgb(255, 255, 255);
+            padding: 1rem;
+            width: 80%;
+            border-top-right-radius: 1rem;
+            border-top-left-radius: 1rem;
+            pointer-events: none;
+            opacity: 0;
+            // adding an adjustment class
+            transform: translateY(100px);
+            transition: all 0.5s ease-in-out;
+            &.active{
+                opacity: 1;
+                transform: translateY(0px);
+                pointer-events: all;
+            }
+            button{
+                position: absolute;
+                top: 0;
+                right: 0;
+                padding: 0.5rem;
+                border-top-right-radius: 1rem;
+                border-bottom-left-radius: 1rem;
+                border: none;
+                background: $button-color;
+                color: white;
+                cursor: pointer;
+                font-weight: bold;
+            }
+        }
+    }
+}
+.panel{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 20vh;
+    button{
+        font-size: 1.2rem;
+        margin: 1rem;
+        padding: 1rem 2rem;
+        background: $button-color;
+        border: none;
+        color: white;
+        cursor: pointer;
+        border-radius: 1rem;
+    }
+    p{
+        font-size: 1.2rem;
+    }
+    .library-panel, .generate-panel, .save-panel{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
