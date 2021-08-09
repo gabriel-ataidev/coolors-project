@@ -87,10 +87,6 @@ path, i, svg {
   width: 80%;
   border-top-right-radius: 1rem;
   border-top-left-radius: 1rem;
-  pointer-events: none;
-  opacity: 0;
-  -webkit-transform: translateY(100px);
-          transform: translateY(100px);
   -webkit-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
 }
@@ -114,6 +110,17 @@ path, i, svg {
   color: white;
   cursor: pointer;
   font-weight: bold;
+}
+
+.colors .color .sliders input[type='range'] {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  margin: 1rem 0;
+  width: 100%;
+  position: relative;
+  border-radius: 1rem;
+  cursor: pointer;
 }
 
 .panel {
