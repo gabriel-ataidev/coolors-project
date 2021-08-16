@@ -205,11 +205,12 @@ const saveBtn = document.querySelector('.save');
 const submitSave = document.querySelector('.submit-save');
 const closeSave = document.querySelector('.close-save');
 const saveContainer = document.querySelector('.save-container');
-const saveInput = document.querySelector('save-container input');
+const saveInput = document.querySelector('.save-container input');
 
 //event listeners
 saveBtn.addEventListener('click', openPalette);
 closeSave.addEventListener('click', closePalette);
+submitSave.addEventListener("click", savePalette);
 
 function openPalette(e){
     const popup = saveContainer.children[0];
@@ -219,7 +220,33 @@ function openPalette(e){
 function closePalette(e){
     const popup = saveContainer.children[0];
     saveContainer.classList.remove('active');
-    popup.classList.add('remove');
+    popup.classList.remove('active');
+}
+function savePalette(e){
+    saveContainer.classList.remove('active');
+    popup.classList.remove('active');
+    const name = saveInput.value;
+    const colors = [];
+    currentHexes.forEach(hex => {
+        colors.push(hex.innerText);
+    });
+    //generate object
+    let paletteNr = savedPalettes.length;
+    const paletteObj = {name: name, colors, nr: paletteNr};
+    savedPalettes.push(paletteObj);
+    //save to Local Storage
+    savetoLocal(paletteObj);
+    saveInput.value = '';
+}
+function savetoLocal(paletteObj){
+    let localPalettes;
+    if(localStorage.getItem('palettes') === null){
+        localPalettes = [];
+    }else{
+        localPalettes = JSON.parse(localStorage.getItem('palettes'));
+    }
+    localPalettes.push(paletteObj);
+    localStorage.setItem('palettes', JSON.stringify(localPalettes));
 }
 
 randomColors();
