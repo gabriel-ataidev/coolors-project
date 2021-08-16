@@ -114,7 +114,7 @@ path, i, svg{
         align-items: center;
     }
 }
-.copy-container{
+.copy-container, .save-container, .library-container{
     position: fixed;
     top: 0%;
     left: 0%;
@@ -131,7 +131,7 @@ path, i, svg{
         opacity: 1;
         pointer-events: all;
     }
-    .copy-popup{
+    .copy-popup, .save-popup, .library-popup{
         background: white;
         display: flex;
         flex-direction: column;
@@ -150,6 +150,34 @@ path, i, svg{
         }
         h4{
             font-size: 2rem;
+            padding: 2rem;
         }
     }
+}
+
+.close-save, .close-library{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.5rem;
+    border-top-right-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    border: none;
+    background: $button-color;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+.save-name{
+    font-size: 1rem;
+    padding: 1rem;
+}
+.submit-save{
+    margin: 2rem;
+    padding: 1rem 3rem;
+    background: $button-color;
+    border-radius: 1rem;
+    color: white;
+    border: none;
+    cursor: pointer;
 }
